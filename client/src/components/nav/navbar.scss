@@ -1,0 +1,87 @@
+@import "../styles/colors.scss";
+
+.navbar-default {
+    background-color: $primary !important;
+}
+
+.logo-img-container {
+    height: 40px !important;
+    display: inline-block !important;
+}
+
+.label-container {
+    position:absolute;
+    margin-top: 10px;
+    font-size: 22px;
+    font-weight: 600;
+    color: $textColor !important;
+    margin-left: 20px;
+}
+
+.tp-top-nav .container {
+    margin-left: 20px !important;
+}
+
+
+.top-img-header {
+    position: relative;
+}
+
+.tp-top-nav {
+    background: #311D1D !important;
+    margin-bottom: 0 !important;
+   border: 2px solid #404040 !important; border-width: 0px 0px 2px 0px !important;
+    border-radius: 0 !important;
+}
+
+.tp-top-nav .container {
+  margin-left: 20px !important;
+  width: 94%;
+}
+
+
+.tp-top-nav li {
+    font-size: 16px !important;
+}
+
+.tp-top-nav li a{
+    color: white !important;
+
+}
+
+.navbar-brand {
+    padding-top: 6px !important;
+}
+
+.landing-container {
+    padding:0;
+}
+
+.seach-txn-input {
+    margin-top: 9px;
+}
+
+.search-txn-icon {
+    color: $primary;
+    position: absolute;
+    right: 28px;
+    top: 20px;
+}
+
+.bottom-nav-row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    bottom: 0 !important;
+    margin-top: 8px !important;
+    margin-bottom: 6px !important;
+    color: $textColor !important;
+}
+
+.bottom-nav-container {
+    background: $primary !important;
+    margin-top: 20px;
+    bottom: 0 !important;
+    position: static !important;
+    width: 100% !important;
+}

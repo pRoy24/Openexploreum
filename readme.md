@@ -1,0 +1,61 @@
+# What is OpenExploreum
+OpenExploreum is a light-weight Ethereum and ERC explorer which can be connected to a local Ethereum node or one in your private VPC and run without any client-side internet connection. The executable creates views entirely through vanilla Web3 requests to your specified node and it does not make a single request to the public internet. (That is unless you choose to use an external provider such as Infura)
+
+## What can you do with it?
+- View and Monitor Transactions on the Ethereum blockchain.
+- View Wallet balances with public address in a private manner without making any external web-service requests.
+- View Gas Prices, Block-propogration, Transaction Receipts etc and most other use-case you can do with a centralized Blockchain explorers.
+- Build your own personal API server and support cool applications on top of it by extending the existing API framework provided with the source.
+- Extend the UI to build your own graphs, visualizations and custom views.
+
+## What can't you do with it?
+- View FIAT prices. 
+The blockchain does not have any knowledge of how much your favorite token is trading for at Binance. While it would be trivial to integrate FIAT prices by simply integrating an API query, keep in mind that every API request you send leaks data about you which can then be linked to create your profile and sold to the highest bidder.
+The other option in a pseudo-anonymous, decentralized way is through Oracles, but Oracle requests aren't free. That's because Writes on the blockchain cost money and the services providers pass the costs down to consumers. The only free price discovery Oracles today update very infrequently and stale FIAT prices are worse than no prices. Therefore in the interest of keeping the base version of the product completely free, FIAT price views are not included.
+
+- Make Trades.
+OpenExploreum is not an exchange.
+
+- Store Ether or tokens.
+OpenExploreum is not a wallet.
+
+- Support multiple concurrent users on the same client.
+Openexploreum is not intended to run like your typical SAAS platform and that is by design.
+The priority is to have minimal software or hardware dependancies and as such it runs on just 2 threads with 1 thread responding to requests sent by the UI and the other running tasks in the background depending on which view you are in (Landing, Token, Account, Transaction etc,) Furthermore writes are made to your local filesystem .
+
+# Ok but why is it such a big-deal?
+Remember when they said that the blockchain is anonymous and decentralized, well technically it's true but the visualization layer isn't. Everytime you check your balance at Etherscan you are sending an HTTP request and information about you such as public IP, location, system info etc.
+As such linking a wallet to a user simply becomes a matter of running a SQL query to pinpoint exactly who a wallet belongs to.
+Currently it can be linked to your investment preferances, net-worth etc. and in the future when you start using those tokens, it will also be linked to your utility preferences and habits.
+
+# Manifesto
+1. The most prevelant forms of manipulation are often subtle in nature. Centralized services  highlight narratives which suit their interests and devalue those which don't. The blockchain is open, it's narrative should be too. The narrative should also be customizable and transparent.
+
+2. SAAS models are convenient but a slippery slope towards concentration of power away from the individual.
+
+3. Privacy must be a choice.
+
+4. Privacy often comes at a cost. Some may choose to sacrifice privacy for convenience and speed, for others refer to point 3.
+
+# Who is it for-
+- Savvy Miners who want to view streaming blockchain statistics before deciding when to mine.
+- Privacy focused users who are not ok with the fact that someone is making money by harvesting your browsing data and then shoving ads in your face.
+- Developers who are looking for a base layer over the Web3 interface consisting of useful APIs and helper functions.
+- Analysts who want to monitor the blockchain and create reports etc.
+
+# Running the executable
+
+# Building from Source
+
+# Architecture
+
+# Screenshots
+
+# License
+The project is distributed freely under terms governed by GPLv3.0 license.
+
+# Enquiries
+Donations are welcome. Ethereum Address - 0x5BBD077cbb260Dd08743CdD7056244c8Ad1C8a66
+If you or your team are working on a project through which you hope to disrupt existing sectors or create new ones, we provide full-stack development and system design contributions and are avaiable to work on project contracts.
+Business enquiries can be sent to info@tokenplex.io or roy@tokenplex.io
+

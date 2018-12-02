@@ -1,0 +1,26 @@
+{
+  "name": "OpenExploreum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.3",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "moment": "^2.22.2",
+    "node-sass": "^4.10.0",
+    "node-schedule": "^1.3.0",
+    "web3": "^1.0.0-beta.36"
+  },
+  "pkg": {
+    "assets": [
+      "client/**/*"
+    ]
+  }
+}
