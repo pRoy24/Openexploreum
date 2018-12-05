@@ -11,18 +11,18 @@ The executable creates views entirely through vanilla Web3 requests to your spec
 - Extend the UI to build your own graphs, visualizations and custom views.
 
 ## What can't you do with it?
-- You cannot view FIAT prices. 
+- ### You cannot view FIAT prices. 
 The blockchain does not have any knowledge of how much your favorite token is trading for at Binance. While it would be trivial to integrate FIAT prices by simply integrating an API query, keep in mind that every API request you send leaks data about you which can then be linked to create your profile and sold to the highest bidder.
 The other option in a pseudo-anonymous, decentralized way is through Oracles, but Oracle requests aren't free. That's because Writes on the blockchain cost money and the services providers pass the costs down to consumers. The only free price discovery Oracles today update very infrequently and stale FIAT prices are worse than no prices. Therefore in the interest of keeping the base version of the product completely free, FIAT price views are not included.
 
-- You cannot make Trades.
+- ### You cannot make Trades.
 Openexploreum is not an exchange.
 
-- You cannot store Ether or tokens.
+- ### You cannot store Ether or tokens.
 OpenExploreum is not a wallet.
 
-- You cannot run it in a SAAS setting or support multiple concurrent users on the same installation.
-Openexploreum is not intended to run like your typical SAAS platform and that is by design.
+- ### You cannot run it in a SAAS setting. 
+Openexploreum is not intended to support multiple concurrent users on the same installation by design. Therefore every individual user must run their own installation.
 The priority is to have minimal software or hardware dependancies and as such it runs on just two threads with 1 thread responding to requests sent by the UI and the other running tasks in the background depending on which view you are in (Landing, Token, Account, Transaction etc.) 
 Furthermore writes are made to your local filesystem to remove any database dependancies so a task query of a particular type will overwrite another task of the same type.
 
