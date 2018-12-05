@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 
 const mapStateToProps = state => {
   return {
-    etherStats: state.etherStats
+    etherStats: state.etherStats,
   }
 }
 

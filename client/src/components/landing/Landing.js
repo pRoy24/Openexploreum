@@ -1,8 +1,9 @@
+
 import React, {Component} from 'react';
 import './landing.scss';
 import {Grid, Row, Col} from 'react-bootstrap';
-import {isNonEmptyArray, isEmptyObject} from '../../utils/ObjectUtils';
-import {VictoryChart, VictoryLine, VictoryAxis, VictoryLabel} from 'victory';
+import {isNonEmptyArray, isEmptyObject, isNonEmptyObject} from '../../utils/ObjectUtils';
+import {VictoryChart, VictoryLine, VictoryAxis, VictoryTooltip, VictoryLabel} from 'victory';
 
 import {Link} from 'react-router-dom';
 import moment from 'moment';
@@ -11,7 +12,7 @@ export default class Landing extends Component {
     constructor(props) {
         super(props);
         this.tick = this.tick.bind(this);
-        this.state = {"blockState": {latestBlock: {}}};
+        this.state = {"blockState": {latestBlock: {}}, "setupConfig": false};
     }
     componentWillMount() {
         this.props.startQueryEthereumStats()
@@ -47,7 +48,8 @@ export default class Landing extends Component {
         let latestTxnsList = <i className="fa fa-spin fa-spinner loading-indicator"/>;
         let pendingTxnsList = <i className="fa fa-spin fa-spinner loading-indicator"/>;
         let  latestBlockStats = <i className="fa fa-spin fa-spinner loading-indicator"/>;
-        if (!isEmptyObject(latestBlock)) {
+
+        if (!isEmptyObject(latestBlock) && isNonEmptyObject(blockData)) {
             latestBlockStats = <LatestBlockStats latestBlock={latestBlock} blockData={blockData}/>
         }   
 
@@ -56,13 +58,14 @@ export default class Landing extends Component {
         
         if (isNonEmptyArray(hourlyTransactionStats)) {
           graphData = hourlyTransactionStats.map(function(item){
-            return {"x": item.index, "y": item.transactions}
+            return {"x": item.index, "y": item.transactions, "label": item.transactions}
           });
           etherTransactionChart = <EtherTransactionGraph graphData={graphData}/>
         }
+
+
         if (isNonEmptyArray(latestBlockTransactions)) {
             latestTxnsList = latestBlockTransactions.map(function(item){
-            
                 return ( 
                 <Row className="block-cell-subrow">
                 <Col lg={12}>
@@ -71,23 +74,26 @@ export default class Landing extends Component {
                         <span className="address-card-value"><Link to={`/transaction/${item.hash}`}>{item.hash}</Link></span>
                     </div>   
                 </Col>
+                <Row>
                 <Col lg={12}>
-                <Col lg={5}>
-                    <div className="transaction-address-block">
-                        <span className="address-card-label">Sender: </span>
-                        <span className="address-card-value"><Link to={`/account/${item.from}`}>{item.from}</Link></span>
-                    </div>                
+                    <Col lg={5}>
+                        <div className="transaction-address-block">
+                            <span className="address-card-label">Sender: </span>
+                            <span className="address-card-value"><Link to={`/account/${item.from}`}>{item.from}</Link></span>
+                        </div>                
+                    </Col>
+                    <Col lg={5}>
+                        <div className="transaction-address-block">
+                            <span className="address-card-label">Receiver: </span>
+                            <span className="address-card-value"><Link to={`/account/${item.from}`}>{item.to}</Link></span>
+                        </div>
+                    </Col>
+                    <Col lg={2}>
+                    
+                    </Col>
                 </Col>
-                <Col lg={5}>
-                    <div className="transaction-address-block">
-                        <span className="address-card-label">Receiver: </span>
-                        <span className="address-card-value"><Link to={`/account/${item.from}`}>{item.to}</Link></span>
-                    </div>
-                </Col>
-                <Col lg={2}>
-                
-                </Col>
-                </Col>
+                </Row>
+                <Row>
                 <Col lg={12}>
                     <Col lg={2}>
                         <div className="display-card-block">
@@ -108,13 +114,21 @@ export default class Landing extends Component {
                         </div>  
                     </Col>
                 </Col>
-                </Row>)
+                </Row>
+               </Row>)
             })
         }
         if (isNonEmptyArray(pendingBlockTransactions)) {
             pendingTxnsList = pendingBlockTransactions.map(function(item){
                 return ( 
                 <Row className="block-cell-subrow">
+                  <Col lg={12}>
+                    <div className="transaction-address-block">
+                        <span className="address-card-label">Transaction Hash: </span>
+                        <span className="address-card-value"><Link to={`/transaction/${item.hash}`}>{item.hash}</Link></span>
+                    </div>   
+                  </Col>
+                <Row>
                 <Col lg={12}>
                 <Col lg={5}>
                     <div className="transaction-address-block">
@@ -132,6 +146,8 @@ export default class Landing extends Component {
                 
                 </Col>
                 </Col>
+                </Row>
+                <Row>
                 <Col lg={12}>
                     <Col lg={2}>
                         <div className="display-card-block">
@@ -152,6 +168,7 @@ export default class Landing extends Component {
                         </div>  
                     </Col>
                 </Col>
+                </Row>
                 </Row>)
             })
         }
@@ -234,7 +251,7 @@ class LatestBlockStats extends Component {
                        <div className="display-card-label"> Confirmed At </div>
                     </div>
                     <div className="display-card-block">
-                       <div className="display-card-value"> {latestBlock.size}</div>
+                       <div className="display-card-value">{latestBlock.size}</div>
                        <div className="display-card-label"> Block Size </div>
                     </div>
                 </Col>
@@ -244,7 +261,7 @@ class LatestBlockStats extends Component {
                        <div className="display-card-label"> Gas Price </div>
                     </div>
                     <div className="display-card-block">
-                       <div className="display-card-value"> {latestBlock.unclesMined}</div>
+                       <div className="display-card-value">{latestBlock.unclesMined}</div>
                        <div className="display-card-label"> Uncles Mined </div>
                     </div>
                 </Col>
@@ -270,13 +287,9 @@ class EtherTransactionGraph extends Component {
                           width={600} height={300}>
               <VictoryLine
                 style={{
-                  data: { stroke: "#FFFC19" },
-    
-            
-                }}
-                data={graphData}
-                  labels={(datum) => datum.y}
-                  labelComponent={<VictoryLabel renderInPortal dy={-20}/>}                        
+                  data: { stroke: "#FFFC19" }}}
+                  data={graphData}
+                  labelComponent={<VictoryTooltip/>}                     
               />
               
               <VictoryAxis
@@ -287,10 +300,14 @@ class EtherTransactionGraph extends Component {
                   }}
             />
             <VictoryAxis dependentAxis
-                    style={{
-                    axis: {stroke: " #FFFC19"}
-                  }}/>
+                    axisLabelComponent={<VictoryLabel dy={20} 
+                    />}
+              style={{
+                ticks: {fill: '#FFFC19'},
+                tickLabels: {fill: '#FFFC19'},
+              }}/>
             </VictoryChart>            
             )
     }
 }
+

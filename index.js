@@ -4,7 +4,8 @@ const cluster = require('cluster');
 const EtherTasks = require('./tasks/EtherTasks');
 const TokenTasks = require('./tasks/TokenTasks');
 const AccountTasks = require("./tasks/AccountTasks");
-
+var bodyParser = require('body-parser');
+require('dotenv').config()
 
 if (cluster.isMaster) {
     console.log(`Master ${process.pid} is running`);
@@ -19,9 +20,15 @@ if (cluster.isMaster) {
 
 } else if (cluster.worker.id === 1) {
     const app = express();
+    // parse application/x-www-form-urlencoded
+    app.use(bodyParser.urlencoded({ extended: false }))
+
+    // parse application/json
+    app.use(bodyParser.json())
+    
     var apiRouter = require('./routes/api');
     // Serve the static files from the React app
-    
+
     app.use(express.static(path.join(__dirname, 'client/build')));
     
     // An api endpoint that returns a short list of items

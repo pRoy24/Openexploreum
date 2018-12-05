@@ -1,9 +1,23 @@
+// Copyright 2018 Tokenplex LLC. proy24
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+// or implied. See the License for the specific language governing
+// permissions and limitations under the License.
+
 import React, {Component} from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import {isEmptyObject, isNonEmptyArray, isNonEmptyObject} from '../../../utils/ObjectUtils';
 import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-import {VictoryChart, VictoryLine, VictoryAxis} from 'victory';
+import {VictoryChart, VictoryLine, VictoryAxis, VictoryLabel} from 'victory';
 import {Link} from 'react-router-dom';
 import '../pages.scss';
 import moment from 'moment';
@@ -28,7 +42,7 @@ export default class ViewToken extends Component {
     this.props.getTokenIntro(token);
     this.props.queryTokenDailyTransactions(token);
     this.props.getTokenDetails(token);
-    this.timer = setInterval(this.tick, 5000);
+    this.timer = setInterval(this.tick, 1000);
   }
   componentWillUnmount() {
     const {match: {params}} = this.props;
@@ -62,10 +76,12 @@ export default class ViewToken extends Component {
     const {tokenStats :{tokenIntro, tokenDetails}} = this.props;
     let tokenIntroBlock = <span/>;
     let tokenHistoryData= [];
+    let transactionChart = <i className="fa fa-spin fa-spinner loading-indicator"/>;
     if (tokenDetails && tokenDetails.txPerHour && isNonEmptyArray(tokenDetails.txPerHour.transactions)) {
           tokenHistoryData = tokenDetails.txPerHour.transactions.map(function(item){
             return {"x": item.date, "y": item.transactions}
-        })
+        });
+        transactionChart = <TransactionChart tokenHistoryData={tokenHistoryData}/>;
     }
     if (isNonEmptyObject(tokenIntro)) {
       tokenIntroBlock = <TokenIntro tokenIntro={tokenIntro} tokenDetails={tokenDetails}/>
@@ -73,6 +89,8 @@ export default class ViewToken extends Component {
     let contractTxnList = <span/>;
 
     let detailsBlock = <span/>;
+
+    
     console.log(tokenDetails);
     if (isNonEmptyObject(tokenDetails)) {
       detailsBlock = (
@@ -107,7 +125,7 @@ export default class ViewToken extends Component {
         return b.block.number - a.block.number;
       }).map(function(item, idx){
         let itemStatus = <span/>;
-        if (item.receipt.status) {
+        if (item.receipt && item.receipt.status) {
           itemStatus = <i className="fa fa-check"/>
         } else {
           itemStatus = <i className="fa fa-times"/>
@@ -168,7 +186,7 @@ export default class ViewToken extends Component {
                       <span className="address-card-value">{item.transaction.gas}</span>
                     </Col>
                     <Col lg={3}>
-                      <span className="address-card-label">Timestap: </span>
+                      <span className="address-card-label">Timestamp: </span>
                       <span className="address-card-value">{moment.unix(item.block.timestamp).format("hh:mm:ss a MM/DD/YY")}</span>
                     </Col>
                 </Col>
@@ -192,28 +210,7 @@ export default class ViewToken extends Component {
                 {detailsBlock} 
               </Col>
               <Col lg={4} className="display-card-row top-row-card">
-                  <VictoryChart minDomain={{ y: 1000 }} padding={{ top: 20, bottom: 60 }}
-                                  width={600} height={300}>
-                      <VictoryLine
-                        style={{
-                          data: { stroke: "#FFFC19" },
-
-                    
-                        }}
-                        data={tokenHistoryData}
-                      />
-                      <VictoryAxis
-                      label="Time (hr)"
- 
-                        style={{
-                            axis: {stroke: "#FFFC19"},
-                          }}
-                    />
-                    <VictoryAxis dependentAxis
-                            style={{
-                            axis: {stroke: " #FFFC19"}
-                          }}/>
-                    </VictoryChart>
+                {transactionChart}
               </Col>
           </Row>
           <Row>
@@ -265,6 +262,37 @@ class TokenIntro extends Component {
         </Col>
    
       </div>
+      )
+  }
+}
+
+class TransactionChart extends Component {
+  render() {
+    const {tokenHistoryData} = this.props;
+    return (
+        <VictoryChart padding={{ top: 20, bottom: 60 }}
+                        width={600} height={300}>
+            <VictoryLine
+              style={{
+                data: { stroke: "#FFFC19" },
+              }}
+              data={tokenHistoryData}
+            />
+            <VictoryAxis
+            label="Time (hr)"
+
+              style={{
+                  axis: {stroke: "#FFFC19"},
+                }}
+          />
+          <VictoryAxis dependentAxis
+                  axisLabelComponent={<VictoryLabel dy={20} 
+                  />}
+            style={{
+              ticks: {fill: '#FFFC19'},
+              tickLabels: {fill: '#FFFC19'},
+            }}/>
+          </VictoryChart>      
       )
   }
 }

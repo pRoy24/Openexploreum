@@ -13,6 +13,7 @@ node_modules/*
 
 # production
 /build
+client/build
 
 # misc
 .DS_Store
@@ -28,5 +29,3 @@ yarn-error.log*
 OpenExploreum-linux
 OpenExploreum-macos
 OpenExploreum-win.exe
-
-.env

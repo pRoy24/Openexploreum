@@ -1,5 +1,7 @@
 # What is OpenExploreum
-OpenExploreum is a light-weight Ethereum and ERC explorer which can be connected to a local Ethereum node or one in your private VPC and run without any client-side internet connection. The executable creates views entirely through vanilla Web3 requests to your specified node and it does not make a single request to the public internet. (That is unless you choose to use an external provider such as Infura)
+OpenExploreum is a light-weight Ethereum and ERC explorer which can be connected to a local Ethereum node or one in your private VPC 
+and run in airgapped mode without any client-side internet connection.
+The executable creates views entirely through vanilla Web3 requests to your specified node and it does not make any requests to the public internet. (That is unless you choose to use an external provider such as Infura)
 
 ## What can you do with it?
 - View and Monitor Transactions on the Ethereum blockchain.
@@ -23,7 +25,16 @@ OpenExploreum is not a wallet.
 Openexploreum is not intended to run like your typical SAAS platform and that is by design.
 The priority is to have minimal software or hardware dependancies and as such it runs on just 2 threads with 1 thread responding to requests sent by the UI and the other running tasks in the background depending on which view you are in (Landing, Token, Account, Transaction etc,) Furthermore writes are made to your local filesystem .
 
-# Ok but why is it such a big-deal?
+## Screenshots
+
+![](https://lh5.googleusercontent.com/nSf8zpEJq-i2WIdNOr_AaKQpDVpP7GZ8DmZvwbt4-nXpgjn96gtBALgyaDYkos1Xk_Qhds7PdorPHLk7tS79=w1440-h661-rw)
+
+## How to run in airgap mode
+By default the app uses Infura web3 endpoint as the provider.
+To switch to a local node or one in your private VPC, click on the provider text in top right navbar.
+![](https://lh3.googleusercontent.com/lB29YghdI21YrWEsUg7w1RjkBjgL5nRIhPZRepPWzDRhPSa-zK75kWX3jv6D4edGM_M-ZNhY4SdsnM2C2m8U=w1440-h710-rw)
+
+# Ok but why is it a big-deal?
 Remember when they said that the blockchain is anonymous and decentralized, well technically it's true but the visualization layer isn't. Everytime you check your balance at Etherscan you are sending an HTTP request and information about you such as public IP, location, system info etc.
 As such linking a wallet to a user simply becomes a matter of running a SQL query to pinpoint exactly who a wallet belongs to.
 Currently it can be linked to your investment preferances, net-worth etc. and in the future when you start using those tokens, it will also be linked to your utility preferences and habits.
@@ -44,12 +55,27 @@ Currently it can be linked to your investment preferances, net-worth etc. and in
 - Analysts who want to monitor the blockchain and create reports etc.
 
 # Running the executable
+The release contain as-is builds for the product including both UI and the middleware.
+
+Depending on your platform choose your executable.
+Linux - OpenExploreum-linux
+Mac OSX - OpenExploreum-macos
+Windows - OpenExploreum-win.exe
+
+Then browse to http://localhost:3000/ to view the app in action.
 
 # Building from Source
+Clone the repo from the URL.
+Browse to the directory.
+To run middleware do npm install and npm start
+Middleware code runs at http://localhost:3000
+To run the UI server in development mode 
+Browse to project_source/client.
+npm install 
+npm start
+The UI development server runs in http://localhost:3001 by default.
 
-# Architecture
-
-# Screenshots
+Note: If you change the port of the middleware server, be sure to change the proxy settings in client/package.json to the chosen port.
 
 # License
 The project is distributed freely under terms governed by GPLv3.0 license.

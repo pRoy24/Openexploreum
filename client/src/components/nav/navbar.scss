@@ -85,3 +85,33 @@
     position: static !important;
     width: 100% !important;
 }
+
+.config-container {
+    color: $textColor !important;    
+    margin-top: 8px;
+    cursor: pointer;
+    
+}
+
+.current-config-text {
+    font-size: 13px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.config-text-value {
+    text-decoration: underline;
+}
+
+.config-edit-btn {
+    font-size: 16px;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 4px;
+
+}
+
+.bottom-nav-left span{
+    margin-left: 4px;
+}
