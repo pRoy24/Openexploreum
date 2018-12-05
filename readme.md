@@ -1,5 +1,5 @@
-# What is OpenExploreum
-OpenExploreum is a light-weight Ethereum and ERC explorer which can be connected to a local Ethereum node or one in your private VPC 
+# What is Openexploreum
+Openexploreum is a light-weight Ethereum and ERC explorer which can be connected to a local Ethereum node or one in your private VPC 
 and run in airgapped mode without any client-side internet connection.
 The executable creates views entirely through vanilla Web3 requests to your specified node and it does not make any requests to the public internet. (That is unless you choose to use an external provider such as Infura)
 
