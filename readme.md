@@ -11,19 +11,20 @@ The executable creates views entirely through vanilla Web3 requests to your spec
 - Extend the UI to build your own graphs, visualizations and custom views.
 
 ## What can't you do with it?
-- View FIAT prices. 
+- You cannot view FIAT prices. 
 The blockchain does not have any knowledge of how much your favorite token is trading for at Binance. While it would be trivial to integrate FIAT prices by simply integrating an API query, keep in mind that every API request you send leaks data about you which can then be linked to create your profile and sold to the highest bidder.
 The other option in a pseudo-anonymous, decentralized way is through Oracles, but Oracle requests aren't free. That's because Writes on the blockchain cost money and the services providers pass the costs down to consumers. The only free price discovery Oracles today update very infrequently and stale FIAT prices are worse than no prices. Therefore in the interest of keeping the base version of the product completely free, FIAT price views are not included.
 
-- Make Trades.
-OpenExploreum is not an exchange.
+- You cannot make Trades.
+Openexploreum is not an exchange.
 
-- Store Ether or tokens.
+- You cannot store Ether or tokens.
 OpenExploreum is not a wallet.
 
-- Support multiple concurrent users on the same client.
+- You cannot run it in a SAAS setting or support multiple concurrent users on the same installation.
 Openexploreum is not intended to run like your typical SAAS platform and that is by design.
-The priority is to have minimal software or hardware dependancies and as such it runs on just 2 threads with 1 thread responding to requests sent by the UI and the other running tasks in the background depending on which view you are in (Landing, Token, Account, Transaction etc,) Furthermore writes are made to your local filesystem .
+The priority is to have minimal software or hardware dependancies and as such it runs on just two threads with 1 thread responding to requests sent by the UI and the other running tasks in the background depending on which view you are in (Landing, Token, Account, Transaction etc.) 
+Furthermore writes are made to your local filesystem to remove any database dependancies so a task query of a particular type will overwrite another task of the same type.
 
 ## Screenshots
 
@@ -40,16 +41,14 @@ As such linking a wallet to a user simply becomes a matter of running a SQL quer
 Currently it can be linked to your investment preferances, net-worth etc. and in the future when you start using those tokens, it will also be linked to your utility preferences and habits.
 
 # Manifesto
-1. The most prevelant forms of manipulation are often subtle in nature. Centralized services  highlight narratives which suit their interests and devalue those which don't. The blockchain is open, it's narrative should be too. The narrative should also be customizable and transparent.
 
-2. SAAS models are convenient but a slippery slope towards concentration of power away from the individual.
-
-3. Privacy must be a choice.
-
-4. Privacy often comes at a cost. Some may choose to sacrifice privacy for convenience and speed, for others refer to point 3.
+1. The blockchain is decentralized, it's narrative should be as well.
+2. SAAS models are convinient but a slippery slope towards centralization and concentration of power.
+3. Your browsing data belongs to you and your privacy is your choice to make.
+4. Privacy comes at a cost. Some choose to sacrifice privacy for convenience and speed, for others refer to point three.
 
 # Who is it for-
-- Savvy Miners who want to view streaming blockchain statistics before deciding when to mine.
+- Miners who want to view streaming blockchain statistics to make decisions regarding mining oppurtunities.
 - Privacy focused users who are not ok with the fact that someone is making money by harvesting your browsing data and then shoving ads in your face.
 - Developers who are looking for a base layer over the Web3 interface consisting of useful APIs and helper functions.
 - Analysts who want to monitor the blockchain and create reports etc.
@@ -78,7 +77,7 @@ The UI development server runs in http://localhost:3001 by default.
 Note: If you change the port of the middleware server, be sure to change the proxy settings in client/package.json to the chosen port.
 
 # License
-The project is distributed freely under terms governed by GPLv3.0 license.
+The project is distributed freely under terms governed by Apachev2.0 license.
 
 # Enquiries
 Donations are welcome. Ethereum Address - 0x5BBD077cbb260Dd08743CdD7056244c8Ad1C8a66
