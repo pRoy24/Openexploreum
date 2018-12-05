@@ -27,12 +27,12 @@ The priority is to have minimal software or hardware dependancies and as such it
 
 ## Screenshots
 
-![](https://lh5.googleusercontent.com/nSf8zpEJq-i2WIdNOr_AaKQpDVpP7GZ8DmZvwbt4-nXpgjn96gtBALgyaDYkos1Xk_Qhds7PdorPHLk7tS79=w1440-h661-rw)
+![](https://lh4.googleusercontent.com/BlouO4kgM91m4Os6ZKoSfZhX7YZOx5EMUSQPld0DJ-XRfD8z3vH36bq21PLp09fCzj7-mOSdGTH3HQ=w1440-h715)
 
 ## How to run in airgap mode
 By default the app uses Infura web3 endpoint as the provider.
 To switch to a local node or one in your private VPC, click on the provider text in top right navbar.
-![](https://lh3.googleusercontent.com/lB29YghdI21YrWEsUg7w1RjkBjgL5nRIhPZRepPWzDRhPSa-zK75kWX3jv6D4edGM_M-ZNhY4SdsnM2C2m8U=w1440-h710-rw)
+![](https://lh4.googleusercontent.com/4LWcivSxu4EBfnaAUWIqRLAHg0QGhvKfe6LBkHnt-OUkZDSLexzw0pCphqdUG_v8XEGCoEk6lvC51g=w1440-h715)
 
 # Ok but why is it a big-deal?
 Remember when they said that the blockchain is anonymous and decentralized, well technically it's true but the visualization layer isn't. Everytime you check your balance at Etherscan you are sending an HTTP request and information about you such as public IP, location, system info etc.
