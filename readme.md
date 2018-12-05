@@ -37,14 +37,14 @@ To switch to a local node or one in your private VPC, click on the provider text
 ![](https://lh4.googleusercontent.com/4LWcivSxu4EBfnaAUWIqRLAHg0QGhvKfe6LBkHnt-OUkZDSLexzw0pCphqdUG_v8XEGCoEk6lvC51g=w1440-h715)
 
 # Ok but why is it a big-deal?
-Remember when they said that the blockchain is anonymous and decentralized, well technically it's true but the visualization layer isn't. Everytime you check your balance at Etherscan you are sending an HTTP request and information about you such as public IP, location, system info etc.
-As such linking a wallet to a user simply becomes a matter of running a SQL query to pinpoint exactly who a wallet belongs to.
-Currently it can be linked to your investment preferances, net-worth etc. and in the future when you start using those tokens, it will also be linked to your utility preferences and habits.
+Remember when they said that the blockchain is pseudo-anonymous and decentralized, well technically it's true but the visualization layer isn't. Everytime you check your balance at Etherscan you are sending an HTTP request and information about you such as public IP, location, system info etc.
+As such linking a wallet to a user simply becomes a matter of running a SQL query to create a profile and start the vicious cycle of targeted advertising once again.
+
 
 # Manifesto
 
 1. The blockchain is decentralized, it's narrative should be as well.
-2. SAAS models are convinient but a slippery slope towards centralization and concentration of power.
+2. SAAS models are convenient but a slippery slope towards centralization and concentration of power.
 3. Your browsing data belongs to you and your privacy is your choice to make.
 4. Privacy comes at a cost. Some choose to sacrifice privacy for convenience and speed, for others refer to point three.
 
