@@ -12,7 +12,8 @@ The executable creates views entirely through vanilla Web3 requests to your spec
 
 ## What can't you do with it?
 - ### You cannot view FIAT prices. 
-The blockchain does not have any knowledge of how much a token is trading for at a given exchange. While it would be trivial to integrate FIAT prices by simply integrating an API query, keep in mind that every API request you send leaks data about you which can then be linked to create your profile and sold to the highest bidder.
+The blockchain does not have any knowledge of how much a token is trading for at a given exchange. While it would be trivial to integrate FIAT prices by simply integrating an API query, keep in mind that every API request you send leaks data about you
+beyond which it becomes trivial to link your blockchain queries to a profile and bombard you with targeted advertisements.
 The other option in a pseudo-anonymous, decentralized way is through Oracles, but Oracle requests aren't free. That's because Writes on the blockchain cost money and the services providers pass the costs down to consumers. The only free price discovery Oracles today update very infrequently and stale FIAT prices are worse than no prices. Therefore in the interest of keeping the base version of the product completely free, FIAT price views are not included.
 
 - ### You cannot make Trades.
