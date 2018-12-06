@@ -44,13 +44,12 @@ As such linking a wallet to a user simply becomes a matter of running a SQL quer
 # Manifesto - 
 
 1. The blockchain is decentralized, it's narrative should be as well.
-2. SAAS models are convenient but a slippery slope towards centralization and concentration of power.
-3. Your browsing data belongs to you and your privacy is your choice to make.
-4. Privacy comes at a cost. Some choose to sacrifice privacy for convenience and speed, for others refer to point three.
+2. Your browsing data belongs to you and your privacy is your choice to make.
+3. Privacy comes at a cost. Some choose to sacrifice privacy for convenience and speed, for others refer to 2.
 
 # Who is it for-
 - Miners who want to view streaming blockchain statistics to make decisions regarding mining oppurtunities.
-- Privacy focused users who are not ok with third-parties harvesting your browsing data and shoving ads in your face.
+- Privacy focused users who are not ok with third-parties harvesting your browsing data.
 - Developers who are looking for a base layer over the Web3 interface consisting of useful APIs and helper functions.
 - Analysts who want to monitor the blockchain and create reports etc.
 
