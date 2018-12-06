@@ -4,11 +4,11 @@ and run in airgapped mode without any client-side internet connection.
 The executable creates views entirely through vanilla Web3 requests to your specified node and it does not make any requests to the public internet. (That is unless you choose to use an external provider such as Infura)
 
 ## What can you do with it - 
-- View and Monitor Transactions on the Ethereum blockchain.
-- View Wallet balances with public address in a private manner without making any external web-service requests.
-- View Gas Prices, Block-propogration, Transaction Receipts etc and most other use-case you can do with a centralized Blockchain explorers.
-- Build your own personal API server and support applications on top of it by extending the existing API framework provided with the source.
-- Extend the UI to build your own graphs, visualizations and custom views.
+- ### View and Monitor Transactions on the Ethereum blockchain.
+- ### View Wallet balances with public address in a private manner without making any external web-service requests.
+- ### View Gas Prices, Block-propogration, Transaction Receipts etc and most other use-case you can do with a centralized Blockchain explorers.
+- ### Build your own personal API server and support applications on top of it by extending the existing API framework provided with the source.
+- ### Extend the UI to build your own graphs, visualizations and custom views.
 
 ## What can't you do with it -
 - ### You cannot view FIAT prices
