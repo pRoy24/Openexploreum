@@ -29,7 +29,7 @@ Furthermore writes are made to your local filesystem to remove any database depe
 
 ## Screenshots -
 
-![](https://lh4.googleusercontent.com/BlouO4kgM91m4Os6ZKoSfZhX7YZOx5EMUSQPld0DJ-XRfD8z3vH36bq21PLp09fCzj7-mOSdGTH3HQ=w1440-h715)
+![](https://github.com/tokenplex/Openexploreum/blob/master/screenshots/supported_views.png)
 
 ## How to run in airgap mode - 
 By default the app uses Infura web3 endpoint as the provider.
@@ -75,7 +75,9 @@ npm install
 npm start
 The UI development server runs in http://localhost:3001 by default.
 
-Note: If you change the port of the middleware server, be sure to change the proxy settings in client/package.json to the chosen port.
+Note: 
+- If you change the port of the middleware server, be sure to change the proxy settings in client/package.json to the chosen port.
+- web3 installation might require sudo depending on your system and access previlages
 
 # License -
 The project is distributed freely under terms governed by Apachev2.0 license.
