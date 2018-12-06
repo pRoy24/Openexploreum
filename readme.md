@@ -7,7 +7,7 @@ The executable creates views entirely through vanilla Web3 requests to your spec
 - View and Monitor Transactions on the Ethereum blockchain.
 - View Wallet balances with public address in a private manner without making any external web-service requests.
 - View Gas Prices, Block-propogration, Transaction Receipts etc and most other use-case you can do with a centralized Blockchain explorers.
-- Build your own personal API server and support cool applications on top of it by extending the existing API framework provided with the source.
+- Build your own personal API server and support applications on top of it by extending the existing API framework provided with the source.
 - Extend the UI to build your own graphs, visualizations and custom views.
 
 ## What can't you do with it -
@@ -50,7 +50,7 @@ As such linking a wallet to a user simply becomes a matter of running a SQL quer
 
 # Who is it for-
 - Miners who want to view streaming blockchain statistics to make decisions regarding mining oppurtunities.
-- Privacy focused users who are not ok with the fact that someone is making money by harvesting your browsing data and then shoving ads in your face.
+- Privacy focused users who are not ok with third-parties harvesting your browsing data and shoving ads in your face.
 - Developers who are looking for a base layer over the Web3 interface consisting of useful APIs and helper functions.
 - Analysts who want to monitor the blockchain and create reports etc.
 
