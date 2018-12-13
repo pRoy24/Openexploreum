@@ -86,5 +86,5 @@ The project is distributed freely under terms governed by Apachev2.0 license.
 # Enquiries -
 Donations are welcome. Ethereum Address - 0x5BBD077cbb260Dd08743CdD7056244c8Ad1C8a66
 If you or your team are working on a project through which you hope to disrupt existing sectors or create new ones, we provide full-stack development and system design contributions and are avaiable to work on project contracts.
-Business enquiries can be sent to info@tokenplex.io or roypritam1234@tokenplex.io
+Business enquiries can be sent to admin@tokenplex.io or roypritam1234@tokenplex.io
 
